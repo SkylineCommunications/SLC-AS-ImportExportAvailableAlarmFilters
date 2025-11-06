@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportExportAvailableAlarmFilters", "ImportExportAvailableAlarmFilters\ImportExportAvailableAlarmFilters.csproj", "{46420CC5-6FC6-4B44-B3F8-147DE3E19A7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Internal", "Internal", "{C72CDFE1-C1D3-4FDA-BD5D-B4288C859F3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Analysis", "Code Analysis", "{A2D59655-2443-4FE5-910E-0A4AD948F1DC}"
+	ProjectSection(SolutionItems) = preProject
+		Internal\Code Analysis\qaction-debug.ruleset = Internal\Code Analysis\qaction-debug.ruleset
+		Internal\Code Analysis\qaction-release.ruleset = Internal\Code Analysis\qaction-release.ruleset
+		Internal\Code Analysis\stylecop.json = Internal\Code Analysis\stylecop.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46420CC5-6FC6-4B44-B3F8-147DE3E19A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46420CC5-6FC6-4B44-B3F8-147DE3E19A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46420CC5-6FC6-4B44-B3F8-147DE3E19A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46420CC5-6FC6-4B44-B3F8-147DE3E19A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A2D59655-2443-4FE5-910E-0A4AD948F1DC} = {C72CDFE1-C1D3-4FDA-BD5D-B4288C859F3F}
+	EndGlobalSection
+EndGlobal
