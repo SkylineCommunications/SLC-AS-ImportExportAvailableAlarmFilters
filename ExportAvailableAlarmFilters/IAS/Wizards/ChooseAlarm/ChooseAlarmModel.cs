@@ -1,4 +1,4 @@
-﻿namespace Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm
+﻿namespace Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm
 {
 	using System;
 	using System.Collections.Generic;

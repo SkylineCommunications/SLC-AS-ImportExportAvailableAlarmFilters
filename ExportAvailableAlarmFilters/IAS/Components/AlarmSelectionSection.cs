@@ -1,7 +1,7 @@
-﻿namespace Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.IAS.Components
+﻿namespace Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Components
 {
 	using System;
-	using Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.IAS.Helpers;
+	using Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Helpers;
 	using Skyline.DataMiner.Net.Filters;
 	using Skyline.DataMiner.Utils.InteractiveAutomationScript;
 

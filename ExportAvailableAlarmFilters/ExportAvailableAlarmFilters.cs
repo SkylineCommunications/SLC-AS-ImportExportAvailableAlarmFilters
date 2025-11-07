@@ -49,12 +49,12 @@ DATE		VERSION		AUTHOR			COMMENTS
 ****************************************************************************
 */
 
-namespace Skyline.DataMiner.Automation.ImportAvailableAlarmFilters
+namespace Skyline.DataMiner.Automation.ExportAvailableAlarmFilters
 {
 	using System;
 	using SharedCode.Helpers.Exceptions;
 	using Skyline.DataMiner.Automation;
-	using Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm;
+	using Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm;
 	using Skyline.DataMiner.Utils.InteractiveAutomationScript;
 
 	/// <summary>

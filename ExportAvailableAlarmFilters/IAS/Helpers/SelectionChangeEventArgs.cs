@@ -1,4 +1,4 @@
-﻿namespace Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.IAS.Helpers
+﻿namespace Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Helpers
 {
 	using System;
 	using Skyline.DataMiner.Net.Filters;

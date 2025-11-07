@@ -1,7 +1,7 @@
-﻿namespace Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm
+﻿namespace Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm
 {
 	using SharedCode.Helpers.Exceptions;
-	using Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm.Interfaces;
+	using Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm.Interfaces;
 	using Skyline.DataMiner.Utils.InteractiveAutomationScript;
 
 	public class ChooseAlarmWizard

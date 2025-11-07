@@ -1,10 +1,10 @@
-﻿namespace Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm
+﻿namespace Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm
 {
 	using System;
 	using System.Text.RegularExpressions;
 	using Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.Exporter;
-	using Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.IAS.Helpers;
-	using Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm.Interfaces;
+	using Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Helpers;
+	using Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm.Interfaces;
 	using Skyline.DataMiner.Utils.InteractiveAutomationScript;
 
 	public class ChooseAlarmPresenter
