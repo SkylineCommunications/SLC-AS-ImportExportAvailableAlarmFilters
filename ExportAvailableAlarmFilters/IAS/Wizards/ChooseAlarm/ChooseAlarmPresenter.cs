@@ -25,7 +25,7 @@
 
 		public event EventHandler<EventArgs> Cancel;
 
-		private static bool ValidateExportName(string text)
+		internal static bool ValidateExportName(string text)
 		{
 			return Regex.IsMatch(text, @"^[\w\-. ]+$");
 		}

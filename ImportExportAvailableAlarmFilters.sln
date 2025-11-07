@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportAvailableAlarmFilters
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedCode", "SharedCode\SharedCode.shproj", "{FCAD98E5-E711-49C2-AA9D-E342E4797D5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportAvailableAlarmFiltersTests", "ExportAvailableAlarmFiltersTests\ExportAvailableAlarmFiltersTests.csproj", "{092932F2-7EDF-4012-B6EC-9CED946D33A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{617DC9BC-2DB9-4E06-AD54-AED369048667}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{617DC9BC-2DB9-4E06-AD54-AED369048667}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{617DC9BC-2DB9-4E06-AD54-AED369048667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{092932F2-7EDF-4012-B6EC-9CED946D33A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{092932F2-7EDF-4012-B6EC-9CED946D33A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{092932F2-7EDF-4012-B6EC-9CED946D33A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{092932F2-7EDF-4012-B6EC-9CED946D33A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
