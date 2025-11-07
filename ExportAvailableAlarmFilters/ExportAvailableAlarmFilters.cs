@@ -49,37 +49,68 @@ DATE		VERSION		AUTHOR			COMMENTS
 ****************************************************************************
 */
 
-namespace ImportExportAvailableAlarmFilters
+namespace Skyline.DataMiner.Automation.ImportAvailableAlarmFilters
 {
 	using System;
-	using Skyline.AppInstaller;
+	using SharedCode.Helpers.Exceptions;
 	using Skyline.DataMiner.Automation;
-	using Skyline.DataMiner.Net.AppPackages;
+	using Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm;
+	using Skyline.DataMiner.Utils.InteractiveAutomationScript;
 
 	/// <summary>
 	/// Represents a DataMiner Automation script.
+	/// To make this script interactive "engine.ShowUI()" must be mentioned somewhere (in code or in comment) in this file.
+	/// Be aware, removing this indication will break the script!.
 	/// </summary>
 	public class Script
 	{
 		/// <summary>
 		/// The script entry point.
 		/// </summary>
-		/// <param name="engine">Provides access to the Automation engine.</param>
-		/// <param name="context">Provides access to the installation context.</param>
-		[AutomationEntryPoint(AutomationEntryPointType.Types.InstallAppPackage)]
-		public void Install(IEngine engine, AppInstallContext context)
+		/// <param name="engine">Link with SLAutomation process.</param>
+		public void Run(IEngine engine)
 		{
 			try
 			{
-				engine.Timeout = new TimeSpan(0, 10, 0);
-				engine.GenerateInformation("Starting installation");
-				var installer = new AppInstaller(Engine.SLNetRaw, context);
-				installer.InstallDefaultContent();
+				RunSafe(engine);
+			}
+			catch (CloseUserInteractionException)
+			{
+				// All good
+			}
+			catch (ScriptAbortException)
+			{
+				// Catch normal abort exceptions (engine.ExitFail or engine.ExitSuccess)
+				throw; // Comment if it should be treated as a normal exit of the script.
+			}
+			catch (ScriptForceAbortException)
+			{
+				// Catch forced abort exceptions, caused via external maintenance messages.
+				throw;
+			}
+			catch (ScriptTimeoutException)
+			{
+				// Catch timeout exceptions for when a script has been running for too long.
+				throw;
+			}
+			catch (InteractiveUserDetachedException)
+			{
+				// Catch a user detaching from the interactive script by closing the window.
+				// Only applicable for interactive scripts, can be removed for non-interactive scripts.
+				throw;
 			}
 			catch (Exception e)
 			{
-				engine.ExitFail($"Exception encountered during installation: {e}");
+				engine.ExitFail("Run|Something went wrong: " + e);
 			}
+		}
+
+		private void RunSafe(IEngine engine)
+		{
+			var chooseAlarmWizard = new ChooseAlarmWizard(engine);
+
+			var controller = new InteractiveController(engine);
+			controller.Run(chooseAlarmWizard.Dialog);
 		}
 	}
 }

@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Analysis", "Code Analy
 		Internal\Code Analysis\stylecop.json = Internal\Code Analysis\stylecop.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportAvailableAlarmFilters", "ExportAvailableAlarmFilters\ExportAvailableAlarmFilters.csproj", "{617DC9BC-2DB9-4E06-AD54-AED369048667}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedCode", "SharedCode\SharedCode.shproj", "{FCAD98E5-E711-49C2-AA9D-E342E4797D5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,11 +28,19 @@ Global
 		{46420CC5-6FC6-4B44-B3F8-147DE3E19A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46420CC5-6FC6-4B44-B3F8-147DE3E19A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46420CC5-6FC6-4B44-B3F8-147DE3E19A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{617DC9BC-2DB9-4E06-AD54-AED369048667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{617DC9BC-2DB9-4E06-AD54-AED369048667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{617DC9BC-2DB9-4E06-AD54-AED369048667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{617DC9BC-2DB9-4E06-AD54-AED369048667}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A2D59655-2443-4FE5-910E-0A4AD948F1DC} = {C72CDFE1-C1D3-4FDA-BD5D-B4288C859F3F}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedCode\SharedCode.projitems*{617dc9bc-2db9-4e06-ad54-aed369048667}*SharedItemsImports = 5
+		SharedCode\SharedCode.projitems*{fcad98e5-e711-49c2-aa9d-e342e4797d5e}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
