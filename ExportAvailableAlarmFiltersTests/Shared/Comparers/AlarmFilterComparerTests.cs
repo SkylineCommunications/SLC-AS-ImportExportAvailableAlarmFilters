@@ -6,7 +6,7 @@
 	[TestClass]
 	public class AlarmFilterComparerTests
 	{
-		private AlarmFilterComparer comparer;
+		private AlarmFilterComparer comparer = null!; // Initialize with null-forgiving operator
 
 		[TestInitialize]
 		public void Setup()

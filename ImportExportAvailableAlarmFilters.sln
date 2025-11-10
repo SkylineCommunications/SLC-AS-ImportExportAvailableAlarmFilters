@@ -20,6 +20,10 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedCode", "SharedCode\Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportAvailableAlarmFiltersTests", "ExportAvailableAlarmFiltersTests\ExportAvailableAlarmFiltersTests.csproj", "{092932F2-7EDF-4012-B6EC-9CED946D33A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportAvailableAlarmFilters", "ImportAvailableAlarmFilters\ImportAvailableAlarmFilters.csproj", "{0112924B-A125-423C-8CAE-CC60B2539D0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportAvailableAlarmFiltersTests", "ImportAvailableAlarmFiltersTests\ImportAvailableAlarmFiltersTests.csproj", "{61D30D70-7119-4B37-9AC4-587A5F559AC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +42,14 @@ Global
 		{092932F2-7EDF-4012-B6EC-9CED946D33A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{092932F2-7EDF-4012-B6EC-9CED946D33A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{092932F2-7EDF-4012-B6EC-9CED946D33A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0112924B-A125-423C-8CAE-CC60B2539D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0112924B-A125-423C-8CAE-CC60B2539D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0112924B-A125-423C-8CAE-CC60B2539D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0112924B-A125-423C-8CAE-CC60B2539D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61D30D70-7119-4B37-9AC4-587A5F559AC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61D30D70-7119-4B37-9AC4-587A5F559AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61D30D70-7119-4B37-9AC4-587A5F559AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61D30D70-7119-4B37-9AC4-587A5F559AC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +58,7 @@ Global
 		{A2D59655-2443-4FE5-910E-0A4AD948F1DC} = {C72CDFE1-C1D3-4FDA-BD5D-B4288C859F3F}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedCode\SharedCode.projitems*{0112924b-a125-423c-8cae-cc60b2539d0f}*SharedItemsImports = 5
 		SharedCode\SharedCode.projitems*{617dc9bc-2db9-4e06-ad54-aed369048667}*SharedItemsImports = 5
 		SharedCode\SharedCode.projitems*{fcad98e5-e711-49c2-aa9d-e342e4797d5e}*SharedItemsImports = 13
 	EndGlobalSection

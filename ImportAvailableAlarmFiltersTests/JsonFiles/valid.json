@@ -1,0 +1,77 @@
+﻿{
+	"ExportName": "Export1",
+	"Timestamp": "2025-11-07T18:33:28.3872508Z",
+	"AlarmCount": 7,
+	"Alarms": [
+		{
+			"Name": "Alarm filter",
+			"Description": "",
+			"Owner": "sharedusersettings",
+			"Version": 3,
+			"Key": "sharedusersettings:alarm filter",
+			"AccessType": "public",
+			"CreatedBy": "OPERATIONS\\agkatzog",
+			"IsShared": true
+		},
+		{
+			"Name": "EGNOS_AlarmsFilter",
+			"Description": "",
+			"Owner": "sharedusersettings",
+			"Version": 3,
+			"Key": "sharedusersettings:egnos_alarmsfilter",
+			"AccessType": "public",
+			"CreatedBy": "OPERATIONS\\sprino",
+			"IsShared": true
+		},
+		{
+			"Name": "Has value New",
+			"Description": "Has value New",
+			"Owner": "sharedusersettings",
+			"Version": 2,
+			"Key": "sharedusersettings:has value new",
+			"AccessType": "protected",
+			"CreatedBy": "administrator",
+			"IsShared": true
+		},
+		{
+			"Name": "Metadata_Issue",
+			"Description": "Cirrus metadata alarms",
+			"Owner": "sharedusersettings",
+			"Version": 3,
+			"Key": "sharedusersettings:metadata_issue",
+			"AccessType": "protected",
+			"CreatedBy": "OPERATIONS\\jpoisson",
+			"IsShared": true
+		},
+		{
+			"Name": "MoMeTestALerter CMR-UPS02",
+			"Description": "asdf",
+			"Owner": "sharedusersettings",
+			"Version": 3,
+			"Key": "sharedusersettings:mometestalerter cmr-ups02",
+			"AccessType": "protected",
+			"CreatedBy": "OPERATIONS\\fejarque",
+			"IsShared": true
+		},
+		{
+			"Name": "SQA Correlation Events",
+			"Description": "SQA correlation events",
+			"Owner": "sharedusersettings",
+			"Version": 2,
+			"Key": "sharedusersettings:sqa correlation events",
+			"AccessType": "protected",
+			"CreatedBy": "skyline",
+			"IsShared": true
+		},
+		{
+			"Name": "Test SNMP Trap V9",
+			"Description": "",
+			"Owner": "sharedusersettings",
+			"Version": 3,
+			"Key": "sharedusersettings:test snmp trap v9",
+			"AccessType": "public",
+			"CreatedBy": "OPERATIONS\\fbernard",
+			"IsShared": true
+		}
+	]
+}
