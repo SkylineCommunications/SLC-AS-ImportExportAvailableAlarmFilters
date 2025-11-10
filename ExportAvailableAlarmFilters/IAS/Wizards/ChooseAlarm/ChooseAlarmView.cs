@@ -6,6 +6,7 @@
 	using Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Helpers;
 	using Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Wizards.ChooseAlarm.Interfaces;
 	using Skyline.DataMiner.Net.Filters;
+	using Skyline.DataMiner.Net.Messages;
 	using Skyline.DataMiner.Utils.InteractiveAutomationScript;
 
 	public class ChooseAlarmView : Dialog, IChooseAlarmView
@@ -31,7 +32,7 @@
 
 		public Button CancelButton { get; private set; }
 
-		public void SetupLayout(ICollection<AlarmFilterMeta> alarmFilters, EventHandler<SelectionChangeEventArgs> selectionChangeEventHandler)
+		public void SetupLayout(Dictionary<AlarmFilterMeta, GetAlarmFilterResponse> alarmFilters, EventHandler<SelectionChangeEventArgs> selectionChangeEventHandler)
 		{
 			AddWidget(ExportNameLabel, 0, 0);
 			AddWidget(ExportNameTextBox, 1, 0);

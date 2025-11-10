@@ -4,6 +4,7 @@
 	using System.Collections.Generic;
 	using Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Helpers;
 	using Skyline.DataMiner.Net.Filters;
+	using Skyline.DataMiner.Net.Messages;
 	using Skyline.DataMiner.Utils.InteractiveAutomationScript;
 
 	public interface IChooseAlarmView
@@ -18,6 +19,6 @@
 
 		Button CancelButton { get; }
 
-		void SetupLayout(ICollection<AlarmFilterMeta> alarmFilters, EventHandler<SelectionChangeEventArgs> selectionChangeEventHandler);
+		void SetupLayout(Dictionary<AlarmFilterMeta, GetAlarmFilterResponse> alarmFilters, EventHandler<SelectionChangeEventArgs> selectionChangeEventHandler);
 	}
 }

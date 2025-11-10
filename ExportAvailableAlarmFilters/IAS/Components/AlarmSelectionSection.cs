@@ -1,26 +1,28 @@
 ﻿namespace Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Components
 {
 	using System;
+	using System.Collections.Generic;
 	using Skyline.DataMiner.Automation.ExportAvailableAlarmFilters.IAS.Helpers;
 	using Skyline.DataMiner.Net.Filters;
+	using Skyline.DataMiner.Net.Messages;
 	using Skyline.DataMiner.Utils.InteractiveAutomationScript;
 
 	public class AlarmSelectionSection : Section
 	{
 		private readonly Label filterName;
-		private readonly AlarmFilterMeta alarmFilter;
+		private readonly KeyValuePair<AlarmFilterMeta, GetAlarmFilterResponse> alarmFilter;
 
-		public AlarmSelectionSection(AlarmFilterMeta alarmFilter, int row, int col)
+		public AlarmSelectionSection(KeyValuePair<AlarmFilterMeta, GetAlarmFilterResponse> alarmFilter, int row, int col)
 		{
-			if (string.IsNullOrWhiteSpace(alarmFilter.Name))
+			if (string.IsNullOrWhiteSpace(alarmFilter.Key.Name))
 			{
 				throw new ArgumentNullException(nameof(alarmFilter));
 			}
 
 			this.alarmFilter = alarmFilter;
-			filterName = alarmFilter.IsShared ?
-							new Label($"{alarmFilter.Name} (shared filter)") :
-							new Label($"{alarmFilter.Name}");
+			filterName = alarmFilter.Key.IsShared ?
+							new Label($"{alarmFilter.Key.Name} (shared filter)") :
+							new Label($"{alarmFilter.Key.Name}");
 
 			Layout = new SectionLayout(row, col);
 

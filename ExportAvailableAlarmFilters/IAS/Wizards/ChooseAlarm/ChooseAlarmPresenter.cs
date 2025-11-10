@@ -42,16 +42,19 @@
 
 		private void OnSelectionChangeEventArgs(object sender, SelectionChangeEventArgs e)
 		{
+			var filter = e.AlarmFilter;
+
 			if (e.IsChecked)
 			{
-				if (!this.model.AlarmsToExport.Contains(e.AlarmFilter))
+				if (!this.model.AlarmsToExport.ContainsKey(filter.Key) &&
+					model.AvailableAlarmFilters.TryGetValue(filter.Key, out var response))
 				{
-					this.model.AlarmsToExport.Add(e.AlarmFilter);
+					model.AlarmsToExport.Add(filter.Key, response);
 				}
 			}
 			else
 			{
-				this.model.AlarmsToExport.Remove(e.AlarmFilter);
+				this.model.AlarmsToExport.Remove(e.AlarmFilter.Key);
 			}
 		}
 

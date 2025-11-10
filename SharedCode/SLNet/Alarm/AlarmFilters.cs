@@ -12,6 +12,16 @@
 			return engine.SendSLNetSingleResponseMessage(availableAlarmFilters) as AvailableAlarmFiltersResponse;
 		}
 
+		public static GetAlarmFilterResponse GetAlarmFilterResponse(IEngine engine, string key)
+		{
+			var alarmFilter = new GetAlarmFilterMessage
+			{
+				Key = key,
+			};
+
+			return engine.SendSLNetSingleResponseMessage(alarmFilter) as GetAlarmFilterResponse;
+		}
+
 		public static void UpdateAlarmFilter(
 			IEngine engine,
 			AlarmFilter filterDefinition,

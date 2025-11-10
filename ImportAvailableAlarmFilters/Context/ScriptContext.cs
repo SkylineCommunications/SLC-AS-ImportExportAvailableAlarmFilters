@@ -3,7 +3,7 @@
 	using System;
 	using System.IO;
 	using Newtonsoft.Json;
-	using Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.JsonClass;
+	using SharedCode.JsonClass;
 	using Skyline.DataMiner.Utils.SecureCoding.SecureIO;
 	using Skyline.DataMiner.Utils.SecureCoding.SecureSerialization.Json.Newtonsoft;
 

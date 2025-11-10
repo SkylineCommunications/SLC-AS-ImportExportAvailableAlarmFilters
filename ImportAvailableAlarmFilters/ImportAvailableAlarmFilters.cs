@@ -53,13 +53,19 @@ namespace ImportAvailableAlarmFilters
 {
 	using System;
 	using System.Collections.Generic;
+	using System.IO;
 	using System.Linq;
+	using System.Reflection;
+	using System.Runtime.Serialization;
+	using Newtonsoft.Json;
+	using SharedCode.JsonClass;
 	using SharedCode.SLNet.Alarm;
 	using Skyline.DataMiner.Automation;
 	using Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.Context;
-	using Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.JsonClass;
 	using Skyline.DataMiner.Net.Filters;
-	using Skyline.DataMiner.Net.Messages.SLDataGateway;
+	using Skyline.DataMiner.Net.Helper;
+	using Skyline.DataMiner.Net.Messages;
+	using Skyline.DataMiner.Utils.SecureCoding.SecureSerialization.Json.Newtonsoft;
 
 	/// <summary>
 	/// Represents a DataMiner Automation script.
@@ -100,17 +106,33 @@ namespace ImportAvailableAlarmFilters
 						  .ToHashSet(StringComparer.OrdinalIgnoreCase);
 		}
 
-		private static AlarmFilter GenerateAlarmFilter(AlarmFilterInfo alarm)
+		private static AlarmFilter GenerateAlarmFilter(IEngine engine, AlarmExportEntry alarm)
 		{
-			return new AlarmFilter
+			try
 			{
-				Name = alarm.Name,
-				Description = alarm.Description,
-				Key = alarm.Key,
-				AccessType = alarm.AccessType,
-				CreatedBy = alarm.CreatedBy,
-				Version = alarm.Version.ToString(),
-			};
+				if (string.IsNullOrWhiteSpace(alarm.FilterJson))
+				{
+					engine.GenerateInformation($"[GenerateAlarmFilter] Empty filter definition for '{alarm.Name}'.");
+					return null;
+				}
+
+				var filter = SecureNewtonsoftDeserialization.DeserializeObject<AlarmFilter>(alarm.FilterJson);
+				if (filter == null)
+				{
+					engine.GenerateInformation($"[GenerateAlarmFilter] Failed to deserialize filter '{alarm.Name}'.");
+					return null;
+				}
+
+				filter.Name = alarm.Name;
+				filter.UserContext = alarm.UserContext;
+
+				return filter;
+			}
+			catch (Exception ex)
+			{
+				engine.GenerateInformation($"[GenerateAlarmFilter] Exception for '{alarm.Name}': {ex.Message}");
+				return null;
+			}
 		}
 
 		private void RunSafe(ScriptContext context)
@@ -131,17 +153,21 @@ namespace ImportAvailableAlarmFilters
 
 			foreach (var alarm in alarmExport.Alarms)
 			{
-				var alarmFilter = GenerateAlarmFilter(alarm);
+				var alarmFilter = GenerateAlarmFilter(context.Engine, alarm);
+				if (alarmFilter == null)
+				{
+					continue;
+				}
 
-				var updateType = currentAlarmFilterNames.Contains(alarmFilter.Name) ?
-									Skyline.DataMiner.Net.Messages.UpdateAlarmFilterMessage.UpdateType.Update :
-									Skyline.DataMiner.Net.Messages.UpdateAlarmFilterMessage.UpdateType.New;
+				var updateType = currentAlarmFilterNames.Contains(alarm.Name) ?
+										UpdateAlarmFilterMessage.UpdateType.Update :
+										UpdateAlarmFilterMessage.UpdateType.New;
 
 				AlarmFilters.UpdateAlarmFilter(
 					context.Engine,
 					alarmFilter,
-					null,
-					null,
+					alarm.Name,
+					alarm.UserContext,
 					updateType);
 			}
 		}

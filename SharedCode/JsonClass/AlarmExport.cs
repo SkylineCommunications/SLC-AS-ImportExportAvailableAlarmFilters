@@ -1,4 +1,4 @@
-﻿namespace Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.JsonClass
+﻿namespace SharedCode.JsonClass
 {
 	using System;
 	using System.Collections.Generic;
@@ -11,18 +11,14 @@
 
 		public int AlarmCount { get; set; }
 
-		public List<AlarmFilterInfo> Alarms { get; set; } = new List<AlarmFilterInfo>();
+		public List<AlarmExportEntry> Alarms { get; set; } = new List<AlarmExportEntry>();
 	}
 
-	public class AlarmFilterInfo
+	public class AlarmExportEntry
 	{
 		public string Name { get; set; }
 
 		public string Description { get; set; }
-
-		public string Owner { get; set; }
-
-		public int Version { get; set; }
 
 		public string Key { get; set; }
 
@@ -30,6 +26,12 @@
 
 		public string CreatedBy { get; set; }
 
+		public int Version { get; set; }
+
+		public string UserContext { get; set; }
+
 		public bool IsShared { get; set; }
+
+		public string FilterJson { get; set; }
 	}
 }
