@@ -52,11 +52,14 @@ DATE		VERSION		AUTHOR			COMMENTS
 namespace ImportAvailableAlarmFilters
 {
 	using System;
+	using System.Collections.Generic;
+	using System.Linq;
 	using SharedCode.SLNet.Alarm;
 	using Skyline.DataMiner.Automation;
 	using Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.Context;
 	using Skyline.DataMiner.Automation.ImportAvailableAlarmFilters.JsonClass;
 	using Skyline.DataMiner.Net.Filters;
+	using Skyline.DataMiner.Net.Messages.SLDataGateway;
 
 	/// <summary>
 	/// Represents a DataMiner Automation script.
@@ -80,6 +83,36 @@ namespace ImportAvailableAlarmFilters
 			}
 		}
 
+		private static HashSet<string> GetAlarmFilterNames(ScriptContext context)
+		{
+			var response = AlarmFilters.GetAvailableAlarmFilters(context.Engine);
+			if (response == null)
+			{
+				return new HashSet<string>();
+			}
+
+			var filters = response.Filters ?? Array.Empty<AlarmFilterMeta>();
+			var sharedFilters = response.SharedFilters ?? Array.Empty<AlarmFilterMeta>();
+
+			return filters.Concat(sharedFilters)
+						  .Select(f => f.Name)
+						  .Where(name => !string.IsNullOrEmpty(name))
+						  .ToHashSet(StringComparer.OrdinalIgnoreCase);
+		}
+
+		private static AlarmFilter GenerateAlarmFilter(AlarmFilterInfo alarm)
+		{
+			return new AlarmFilter
+			{
+				Name = alarm.Name,
+				Description = alarm.Description,
+				Key = alarm.Key,
+				AccessType = alarm.AccessType,
+				CreatedBy = alarm.CreatedBy,
+				Version = alarm.Version.ToString(),
+			};
+		}
+
 		private void RunSafe(ScriptContext context)
 		{
 			var alarmExport = context.LoadExportFromFile();
@@ -94,24 +127,22 @@ namespace ImportAvailableAlarmFilters
 
 		private void ImportAlarms(ScriptContext context, AlarmExport alarmExport)
 		{
+			var currentAlarmFilterNames = GetAlarmFilterNames(context);
+
 			foreach (var alarm in alarmExport.Alarms)
 			{
-				AlarmFilter alarmFilter = new AlarmFilter
-				{
-					Name = alarm.Name,
-					Description = alarm.Description,
-					Key = alarm.Key,
-					AccessType = alarm.AccessType,
-					CreatedBy = alarm.CreatedBy,
-					Version = alarm.Version.ToString(),
-				};
+				var alarmFilter = GenerateAlarmFilter(alarm);
+
+				var updateType = currentAlarmFilterNames.Contains(alarmFilter.Name) ?
+									Skyline.DataMiner.Net.Messages.UpdateAlarmFilterMessage.UpdateType.Update :
+									Skyline.DataMiner.Net.Messages.UpdateAlarmFilterMessage.UpdateType.New;
 
 				AlarmFilters.UpdateAlarmFilter(
 					context.Engine,
 					alarmFilter,
 					null,
 					null,
-					Skyline.DataMiner.Net.Messages.UpdateAlarmFilterMessage.UpdateType.Update);
+					updateType);
 			}
 		}
 	}
