@@ -45,7 +45,8 @@
 				var filters = response.Filters ?? Array.Empty<AlarmFilterMeta>();
 				var sharedFilters = response.SharedFilters ?? Array.Empty<AlarmFilterMeta>();
 
-				return filters.Concat(sharedFilters).ToList();
+				availableAlarmFilters = filters.Concat(sharedFilters).ToList();
+				return availableAlarmFilters;
 			}
 			catch (Exception ex)
 			{
