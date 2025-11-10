@@ -6,7 +6,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <DataMinerType>AutomationScript</DataMinerType>
-    <GenerateDataMinerPackage>False</GenerateDataMinerPackage>
+    <GenerateDataMinerPackage>True</GenerateDataMinerPackage>
     <Version>1.0.0</Version>
     <VersionComment>Initial Version</VersionComment>
     <RootNamespace>Skyline.DataMiner.Automation.ImportAvailableAlarmFilters</RootNamespace>
