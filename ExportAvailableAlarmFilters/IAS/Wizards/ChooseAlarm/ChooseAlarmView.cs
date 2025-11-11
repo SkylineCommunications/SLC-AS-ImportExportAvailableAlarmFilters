@@ -14,8 +14,8 @@
 		public ChooseAlarmView(IEngine engine) : base(engine)
 		{
 			Title = "Alarm Filter Export";
-			MinWidth = 500;
-			MinHeight = 200;
+			MaxWidth = 500;
+			MaxHeight = 200;
 
 			InitializeLabels();
 			InitializeTextBox();
