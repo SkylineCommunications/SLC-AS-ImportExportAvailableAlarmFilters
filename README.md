@@ -55,7 +55,7 @@ Imports alarm filters from a JSON file previously exported by the ExportAvailabl
 
 User specifies the file path through the input parameter:
 
-FilePathToImport = C:\DataMiner\Documents\AlarmFilterExports\SharedFilters.json
+**FilePathToImport = C:\DataMiner\Documents\AlarmFilterExports\SharedFilters.json**
 
 
 The script loads the file and recreates the filters in DataMiner.
